@@ -15,6 +15,12 @@
 */
 
 .page {
+  font-family: var(--main-font-family, 'Inter-Variable', sans-serif);
+  font-variation-settings: "wght" var(--main-font-weight, 400);
+  background-color: var(--page-background-color, #FFFFFF);
+  color: var(--text-color, #000000);
+  background-image: var(--page-background-image, none);
+  background-size: cover;
   min-inline-size: 320px;
   min-block-size: 100dvb;
 }
