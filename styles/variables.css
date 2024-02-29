@@ -1,11 +1,14 @@
 :root {
-  --accent-font-family: 'PressStart2P-Regular', sans-serif;
-  --main-font-family: 'Inter-Variable', sans-serif;
+  --accent-font-family: "PressStart2P-Regular", sans-serif;
+  --main-font-family: "Inter-Variable", sans-serif;
   --main-font-weight: 400;
   --headings-font-weight: 700;
-  --page-background-image: repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
-  repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
-  linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
+  --page-background-image: repeating-linear-gradient(
+      to right,
+      #d3d3d3 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
+  --heart-sparks-color: #ff0000;
 }
-
-  

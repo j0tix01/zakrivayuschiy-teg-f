@@ -1,26 +1,376 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
-*/
+.catalog {
+  margin: 0 auto;
+  border: 2px solid var(--text-color, #000000);
+  background: var(--page-background-color, #ffffff);
+  max-inline-size: 696px;
+}
 
 .page {
-  font-family: var(--main-font-family, 'Inter-Variable', sans-serif);
-  font-variation-settings: "wght" var(--main-font-weight, 400);
-  background-color: var(--page-background-color, #FFFFFF);
   color: var(--text-color, #000000);
+  font-family: var(--main-font-family, "Inter-Variable", sans-serif);
+  background-color: var(--page-background-color, #ffffff);
   background-image: var(--page-background-image, none);
   background-size: cover;
+  background-attachment: fixed;
+  font-variation-settings: "wght" var(--main-font-weight, 400);
   min-inline-size: 320px;
   min-block-size: 100dvb;
+}
+
+/* header */
+
+.header {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  margin: 100px auto;
+  font-family: var(--accent-font-family, "PressStart2P-Regular", sans-serif);
+  line-height: normal;
+  text-transform: uppercase;
+  background-color: var(--page-background-color, #ffffff);
+  max-inline-size: 700px;
+}
+
+.header__title {
+  margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  margin-block-end: 20px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__subtitle {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.header__theme-menu {
+  margin-block: 22px;
+}
+
+.theme-menu__list {
+  display: grid;
+  gap: 7px;
+  padding-inline-start: 20px;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  font-size: 14px;
+  text-transform: inherit;
+  background-color: transparent;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: "";
+  display: block;
+  margin-block-start: 2px;
+  opacity: 0.6;
+  background-color: currentColor;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  block-size: 2px;
+}
+
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  animation: arrow 0.5s ease-in-out infinite alternate;
+  inset-inline-start: -13px;
+}
+
+/* main */
+
+.main {
+  display: grid;
+  justify-items: center;
+  padding-block-end: 100px;
+}
+
+.catalog-list {
+  display: grid;
+  gap: 51px;
+  padding-block-end: 47px;
+}
+
+.catalog__title {
+  border-block-end: 2px solid var(--text-color, #000000);
+  padding: 4px 10px;
+  font-size: 18px;
+  line-height: normal;
+  font-variation-settings: "wght" var(--headings-font-weight, 700);
+}
+
+.catalog__img-cover {
+  position: relative;
+}
+
+.catalog__img-label {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.5;
+  color: var(--text-color, #000000);
+  font-family: var(--accent-font-family, "PressStart2P-Regular", sans-serif);
+  font-size: 14px;
+  line-height: normal;
+  text-transform: uppercase;
+  text-shadow: 0 0 1px var(--page-background-color, #ffffff);
+  inset-inline-end: 11px;
+  inset-block-start: 24px;
+  mix-blend-mode: hard-light;
+}
+
+@supports ((text-stroke: 1px #ffffff) or (-webkit-text-stroke: 1px #ffffff)) {
+  .catalog__img-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--page-background-color, #ffffff);
+    text-stroke: 1px #fff;
+  }
+}
+
+.catalog__img {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.catalog__article {
+  display: grid;
+  gap: 27px;
+  border-block-start: 2px solid var(--text-color, #000000);
+  padding: 25px 30px 0 25px;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.like-container {
+  display: flex;
+  justify-content: end;
+  align-items: stretch;
+  gap: 5px;
+  padding: 25px;
+}
+
+.card__icon-button {
+  display: grid;
+  border: 2px solid transparent;
+  padding: 0;
+  background: transparent;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: #000000;
+}
+
+.like-icon {
+  block-size: 36px;
+  inline-size: 39px;
+}
+
+.card__like-button {
+  position: relative;
+  z-index: 1;
+  border: 2px solid var(--text-color, #000000);
+  padding: 10px 36px;
+  font-family: var(--accent-font-family, "PressStart2P-Regular", sans-serif);
+  font-size: 14px;
+  text-transform: inherit;
+  background: var(--page-background-color, #ffffff);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.card__like-button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--text-color, #000000);
+}
+
+.card__like-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--text-color, #000000);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
+
+/* dialog */
+
+.dialog {
+  border: 2px solid var(--text-color, #000000);
+  padding: 25px 30px;
+  color: var(--text-color, #000000);
+  font-family: var(--accent-font-family, "PressStart2P-Regular", sans-serif);
+  line-height: 1.5;
+  text-transform: uppercase;
+  background: var(--page-background-color, #ffffff);
+  max-inline-size: 355px;
+}
+
+.dialog[open] {
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  gap: 30px;
+}
+
+.dialog::backdrop {
+  opacity: 0.75;
+  background-color: #000000;
+}
+
+.dialog__content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dialog__icon {
+  flex-shrink: 0;
+  inline-size: 39px;
+  block-size: 39px;
+}
+
+.dialog_button {
+  position: relative;
+  z-index: 1;
+  border: 2px solid var(--text-color, #000000);
+  padding: 10px 36px;
+  font-family: var(--accent-font-family, "PressStart2P", fantasy);
+  font-size: 14px;
+  text-transform: inherit;
+  background: var(--page-background-color, #ffffff);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+  inline-size: 100%;
+}
+
+.dialog_button::before,
+.button-save::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--text-color, #000000);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.button-save {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid var(--text-color, #000000);
+  padding: 15px 20px;
+  text-transform: inherit;
+  background-color: var(--page-background-color, #ffffff);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.button__text,
+.button__icon {
+  position: relative;
+  z-index: 1;
+  color: var(--button-text-color, #ffffff);
+  mix-blend-mode: difference;
+}
+
+.button__icon {
+  block-size: 21px;
+  inline-size: 21px;
+}
+
+@media (width <= 375px) {
+  .dialog {
+    padding: 28px 34px 28px 40px;
+    max-inline-size: 340px;
+  }
+
+  .button-save {
+    flex-direction: column;
+  }
+
+  .button__icon {
+    block-size: 28px;
+    inline-size: 28px;
+  }
+}
+
+/* filters */
+
+.filter-opacity {
+  filter: opacity(0.7);
+}
+
+.filter-contrast {
+  filter: contrast(1.55);
+}
+
+.filter-grayscale {
+  filter: grayscale(90%);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(180deg);
+}
+
+.filter-sepia {
+  filter: sepia(50%);
+}
+
+.filter-blur {
+  filter: blur(4px);
+}
+
+.filter-brightness {
+  filter: brightness(120%);
 }
