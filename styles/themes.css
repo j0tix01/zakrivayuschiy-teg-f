@@ -1,20 +1,8 @@
-:root.theme-light {
-  --button-text-color: #ffffff;
-  --accent-color: #000;
-  --page-background-color: #ffffff;
-  --text-color: #000000;
-  --page-background-image: repeating-linear-gradient(
-      to right,
-      #d3d3d3 0 2px,
-      transparent 2px 4px
-    ),
-    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
-    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
-}
-
 :root.theme-dark {
-  --button-text-color: #00cc14;
+  --main-font-weight: 465;
+  --headings-font-weight: 785;
   --accent-color: #00cc14;
+  --button-text-color: #00cc14;
   --page-background-color: #000000;
   --text-color: #00cc14;
   --page-background-image: repeating-linear-gradient(
@@ -26,17 +14,36 @@
     linear-gradient(to bottom, #007f0c, #004306);
 }
 
-@media (prefers-color-scheme: dark) {
+:root.theme-light {
+  --main-font-weight: 400;
+  --headings-font-weight: 700;
+  --accent-color: #000;
+  --button-text-color: #ffffff;
+  --page-background-color: #ffffff;
+  --text-color: #000000;
+  --page-background-image: repeating-linear-gradient(
+      to right,
+      #d3d3d3 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
+}
+
+@media (prefers-color-scheme: light) {
   :root {
-    --button-text-color: #00cc14;
-    --page-background-color: #000000;
-    --text-color: #00cc14;
+    --main-font-weight: 400;
+    --headings-font-weight: 700;
+    --accent-color: #000;
+    --button-text-color: #ffffff;
+    --page-background-color: #ffffff;
+    --text-color: #000000;
     --page-background-image: repeating-linear-gradient(
-        to right,
-        #000 0 2px,
-        transparent 2px 4px
-      ),
-      repeating-linear-gradient(to bottom, #000 0 2px, transparent 2px 4px),
-      linear-gradient(to bottom, #007f0c, #004306);
+      to right,
+      #d3d3d3 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
   }
 }
