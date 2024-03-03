@@ -18,6 +18,14 @@
   transition: box-shadow 0.3s ease;
 }
 
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--text-color, #000000);
+}
+
 .button::before {
   content: "";
   position: absolute;
@@ -235,14 +243,6 @@
   block-size: 38px;
 }
 
-.card__like-button:focus {
-  outline: none;
-}
-
-.card__like-button:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--text-color, #000000);
-}
-
 /* dialog */
 
 .dialog {
@@ -308,7 +308,7 @@
 
 @media (width <= 376px) {
   .dialog {
-    padding: 28px 34px 28px 40px;
+    padding: 30px;
     max-inline-size: 340px;
   }
 
